@@ -12,13 +12,15 @@ pool:
 steps:
 
 - task: InstallAppleCertificate@2
+  displayName: 'Install an Apple certificate'
   inputs:
-    certSecureFile: 'Certificates.p12'
-    certPwd: 'ios'
+    certSecureFile: cert1.p12
+    certPwd: test
 
-- task: InstallAppleProvisioningProfile@1
-  inputs:
-    provProfileSecureFile: 'Sober_Development_Profile-2.mobileprovision'
+
+#- task: InstallAppleProvisioningProfile@1
+#  inputs:
+#    provProfileSecureFile: 'Sober_Development_Profile-2.mobileprovision'
 
 - task: Xcode@5
   inputs:
