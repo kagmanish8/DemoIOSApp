@@ -9,7 +9,11 @@ trigger:
 pool:
   vmImage: 'macos-latest'
 
-
+variables:
+  scheme: ''
+  sdk: 'iphoneos'
+  configuration: 'Release'
+  
 steps:
 - task: InstallAppleCertificate@2
   displayName: 'Install an Apple certificate'
