@@ -33,7 +33,7 @@ steps:
     sdk: '$(sdk)'
     scheme: '$(scheme)'
 #    xcWorkspacePath: '*.xcodeproj'
-    packageApp: true
+    packageApp: false
     exportPath: 'output/$(sdk)/$(configuration)'
 
 
