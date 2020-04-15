@@ -28,12 +28,13 @@ steps:
     configuration: '$(configuration)'
     sdk: '$(sdk)'
     scheme: '$(scheme)'
-    xcWorkspacePath: '*.xcodeproj'
-    packageApp: false
-    exportPath: '$(agent.buildDirectory)/output/$(sdk)/$(configuration)'
+#    xcWorkspacePath: '*.xcodeproj'
+    packageApp: true
+    exportPath: 'output/$(sdk)/$(configuration)'
 
-- task: PublishBuildArtifacts@1
+
+- task: CopyFiles@2
   inputs:
-    PathtoPublish: '$(Build.ArtifactStagingDirectory)'
-    ArtifactName: 'drop'
-    publishLocation: 'Container'
+    contents: '**/*.ipa'
+    targetFolder: '$(build.artifactStagingDirectory)'
+- task: PublishBuildArtifacts@1
