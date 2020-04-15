@@ -41,7 +41,7 @@ steps:
     actions: 'build'
     configuration: 'Release'
     sdk: 'iphoneos'
-    xcWorkspacePath: '**/DemoProject.xcodeproj/DemoProject.xcworkspace'
+    xcWorkspacePath: 'DemoProject.xcodeproj/DemoProject.xcworkspace'
     xcodeVersion: 'default' # Options: default, 10, 9, 8, specifyPath
     packageApp: true
     exportPath: '$(Build.ArtifactStagingDirectory)'
