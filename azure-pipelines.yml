@@ -22,18 +22,32 @@ steps:
   inputs:
     provProfileSecureFile: 'Sober_Development_Profile-2.mobileprovision'
 
+#- task: Xcode@5
+#  displayName: 'Xcode Build'
+#  inputs:
+#    actions: 'build'
+#    scheme: ''
+#    sdk: 'iphoneos'
+#    configuration: 'Release'
+#    xcodeVersion: 'default' # Options: default, 10, 9, 8, specifyPath
+#    xcWorkspacePath: '**/DemoProject.xcodeproj/project.xcworkspace'
+#    packageApp: false
+#    exportMethod:
+#   exportOptionsPlist: 
+#    exportPath: $(Build.ArtifactStagingDirectory)
+
 - task: Xcode@5
-  displayName: 'Xcode Build'
   inputs:
     actions: 'build'
-    scheme: ''
-    sdk: 'iphoneos'
     configuration: 'Release'
-    xcodeVersion: 'default' # Options: default, 10, 9, 8, specifyPath
+    sdk: 'iphoneos'
     xcWorkspacePath: '**/DemoProject.xcodeproj/DemoProject.xcworkspace'
-    packageApp: false
-    exportPath: $(Build.ArtifactStagingDirectory)
-
+    xcodeVersion: 'default' # Options: default, 10, 9, 8, specifyPath
+    packageApp: true
+    exportPath: '$(Build.ArtifactStagingDirectory)'
+    exportOptions: 'plist'
+    exportOptionsPlist: '$(Build.ArtifactStagingDirectory)'
+    exportArgs: '$(Build.ArtifactStagingDirectory)'
 - task: PublishBuildArtifacts@1
   inputs:
     PathtoPublish: '$(Build.ArtifactStagingDirectory)'
