@@ -28,9 +28,8 @@ steps:
     scheme: ''
     sdk: 'iphoneos'
     configuration: 'Release'
-    xcWorkspacePath: '**/*.xcodeproj/project.xcworkspace'
-    xcodeVersion: 'default' # Options: 8, 9, 10, default, specifyPath
-    packageApp : true
+    xcodeVersion: 'default' # Options: default, 10, 9, 8, specifyPath
+    packageApp: false
     exportPath: $(Build.ArtifactStagingDirectory)
 
 - task: PublishBuildArtifacts@1
