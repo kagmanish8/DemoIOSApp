@@ -1,0 +1,55 @@
+# Xcode
+# Build, test, and archive an Xcode workspace on macOS.
+# Add steps that install certificates, test, sign, and distribute an app, save build artifacts, and more:
+# https://docs.microsoft.com/azure/devops/pipelines/languages/xcode
+
+trigger:
+- master
+
+pool:
+  vmImage: 'macos-latest'
+
+
+steps:
+- task: InstallAppleCertificate@2
+  displayName: 'Install an Apple certificate'
+  inputs:
+    certSecureFile: cert1.p12
+    certPwd: test
+
+- task: InstallAppleProvisioningProfile@1
+  displayName: 'Install Apple Provisioning Profile'
+  inputs:
+    provProfileSecureFile: 'Sober_Development_Profile-2.mobileprovision'
+
+#- task: Xcode@5
+#  displayName: 'Xcode Build'
+#  inputs:
+#    actions: 'build'
+#    scheme: ''
+#    sdk: 'iphoneos'
+#    configuration: 'Release'
+#    xcodeVersion: 'default' # Options: default, 10, 9, 8, specifyPath
+#    xcWorkspacePath: '**/DemoProject.xcodeproj/project.xcworkspace'
+#    packageApp: false
+#    exportMethod:
+#   exportOptionsPlist: 
+#    exportPath: $(Build.ArtifactStagingDirectory)
+
+- task: Xcode@5
+  inputs:
+    actions: 'build'
+    configuration: 'Release'
+    sdk: 'iphoneos'
+    xcWorkspacePath: 'DemoProject.xcodeproj/DemoProject.xcworkspace'
+    xcodeVersion: 'default' # Options: default, 10, 9, 8, specifyPath
+    packageApp: true
+    exportPath: '$(Build.ArtifactStagingDirectory)'
+    exportOptions: 'plist'
+    exportOptionsPlist: '$(Build.ArtifactStagingDirectory)'
+    exportArgs: '$(Build.ArtifactStagingDirectory)'
+- task: PublishBuildArtifacts@1
+  inputs:
+    PathtoPublish: '$(Build.ArtifactStagingDirectory)'
+    ArtifactName: 'drop'
+    publishLocation: 'Container'
