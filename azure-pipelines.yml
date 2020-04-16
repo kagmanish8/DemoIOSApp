@@ -32,10 +32,14 @@ steps:
     configuration: '$(configuration)'
     sdk: '$(sdk)'
     scheme: '$(scheme)'
-    packageApp: false
+    packageApp: true
     archivePath: '$(build.artifactStagingDirectory)'
     exportPath: 'output/$(sdk)/$(configuration)'
-    teamId: '2R2S7RM348'
+    exportOptions: 'specify'
+    exportMethod: 'development'
+    exportTeamId: '2R2S7RM348'
+    useXcpretty: false
+    publishJUnitResults: true
 
 - task: CopyFiles@2
   inputs:
