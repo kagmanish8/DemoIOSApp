@@ -32,7 +32,7 @@ steps:
     configuration: '$(configuration)'
     sdk: '$(sdk)'
     scheme: '$(scheme)'
-    packageApp: true
+    packageApp: false
     archivePath: '$(build.artifactStagingDirectory)'
     exportPath: 'output/$(sdk)/$(configuration)'
     teamId: '2R2S7RM348'
@@ -41,4 +41,9 @@ steps:
   inputs:
     contents: '**/*.ipa'
     targetFolder: '$(build.artifactStagingDirectory)'
+
+- task: CopyFiles@2
+  inputs:
+    contents: '**/*.app'
+    targetFolder: '$(build.artifactStagingDirectory)'    
 - task: PublishBuildArtifacts@1
