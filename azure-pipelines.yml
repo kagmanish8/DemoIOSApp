@@ -33,8 +33,9 @@ steps:
     sdk: '$(sdk)'
     scheme: '$(scheme)'
     packageApp: true
+    archivePath: '$(build.artifactStagingDirectory)'
     exportPath: 'output/$(sdk)/$(configuration)'
-    teamId: 'Beyond Key Systems Pvt Ltd - 2R2S7RM348'
+    teamId: 'Beyond Key Systems Pvt Ltd'
 
 - task: CopyFiles@2
   inputs:
