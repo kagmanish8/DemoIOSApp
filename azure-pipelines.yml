@@ -18,8 +18,8 @@ steps:
 - task: InstallAppleCertificate@2
   displayName: 'Install an Apple certificate'
   inputs:
-    certSecureFile: cert1.p12
-    certPwd: test
+    certSecureFile: Certificates.p12
+    certPwd: ios
 
 - task: InstallAppleProvisioningProfile@1
   displayName: 'Install Apple Provisioning Profile'
