@@ -34,7 +34,7 @@ steps:
     scheme: '$(scheme)'
     packageApp: true
     exportPath: 'output/$(sdk)/$(configuration)'
-    teamId: 2R2S7RM348
+    teamId: 'Beyond Key Systems Pvt Ltd - 2R2S7RM348'
 
 - task: CopyFiles@2
   inputs:
