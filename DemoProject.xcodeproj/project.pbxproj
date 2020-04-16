@@ -463,8 +463,6 @@
 				PROVISIONING_PROFILE_SPECIFIER = "Sober Development Profile";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
-				build_version="1.0";
-				unique_identifier="com.beyondkey.Sobar-App"
 			};
 			name = Release;
 		};
