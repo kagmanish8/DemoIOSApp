@@ -36,7 +36,7 @@ steps:
     archivePath: '$(build.artifactStagingDirectory)'
     exportPath: 'output/$(sdk)/$(configuration)'
     exportOptions: 'specify'
-    exportMethod: 'development'
+    exportMethod: 'app-store'
     exportTeamId: '2R2S7RM348'
     useXcpretty: true
     publishJUnitResults: true
