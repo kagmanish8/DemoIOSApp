@@ -38,8 +38,8 @@ steps:
     exportOptions: 'specify'
     exportMethod: 'development'
     exportTeamId: '2R2S7RM348'
-    useXcpretty: true
-    publishJUnitResults: true
+    useXcpretty: false
+    publishJUnitResults: false
 
 - task: CopyFiles@2
   inputs:
